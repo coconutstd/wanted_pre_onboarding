@@ -1,22 +1,37 @@
-import '../SassComponent.scss';
+import '../styles/Toggle.scss';
+import { useState } from 'react';
 
 const Toggle = () => {
-  const style = {
-    display: 'flex',
-    height: '100vh',
-    justifyContent: 'center',
-    alignItems: 'center',
+  const [isToggled, setToggle] = useState(false);
+  const onClick = (e) => {
+    const indicator = document.querySelector('.indicator');
+    const toggle = document.querySelector('.toggle');
+    if (indicator.style.transform) {
+      indicator.style.transform = '';
+      toggle.style.background = 'gray';
+    } else {
+      indicator.style.transform = `translateX(40px)`;
+      toggle.style.background = 'purple';
+    }
+
+    setToggle(!isToggled);
   };
 
   return (
-    <div style={style} className="container">
-      <div className="toggle-component">
-        <input type="checkbox"></input>
-        "Off"
-        <span>
-          <span></span>
-        </span>
-        "On"
+    <div className="container">
+      <div className="inner">
+        <label className="toggle-component" for="toggle">
+          <input
+            onClick={onClick}
+            id="toggle"
+            className="toggle-input"
+            type="checkbox"
+          ></input>
+          <span className="toggle">
+            <span className="indicator"></span>
+          </span>
+        </label>
+        {isToggled === false ? 'Toggle Switch Off' : 'Toggle Switch On'}
       </div>
     </div>
   );
