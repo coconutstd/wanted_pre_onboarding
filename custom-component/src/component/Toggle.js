@@ -8,12 +8,11 @@ const Toggle = () => {
     const toggle = document.querySelector('.toggle');
     if (indicator.style.transform) {
       indicator.style.transform = '';
-      toggle.style.background = 'gray';
+      toggle.style.backgroundPosition = '';
     } else {
-      indicator.style.transform = `translateX(40px)`;
-      toggle.style.background = 'purple';
+      indicator.style.transform = `translateX(39px)`;
+      toggle.style.backgroundPosition = 'left';
     }
-
     setToggle(!isToggled);
   };
 
