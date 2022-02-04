@@ -17,14 +17,18 @@ const Modal = () => {
   };
 
   return (
-    <div className="container">
-      <h3>Modal</h3>
-      <div>
-        <button type="button" className="modal-button" onClick={openModal}>
+    <div className="component-container">
+      <div className="component-title">
+        <h3>Modal</h3>
+      </div>
+
+      <div className="component-inner">
+        <button type="button" className="btn-open" onClick={openModal}>
           Open Modal
         </button>
       </div>
-      <div className="modal-component">
+
+      <div className="modal-component hidden">
         <div className="dimmed-layer"></div>
         <div className="modal-content">
           <button

@@ -17,7 +17,10 @@ const Toggle = () => {
   };
 
   return (
-    <div className="container">
+    <div className="component-container">
+      <div className="component-title">
+        <h3>Toggle</h3>
+      </div>
       <div className="inner">
         <label className="toggle-component" for="toggle">
           <input
