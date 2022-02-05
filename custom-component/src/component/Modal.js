@@ -7,13 +7,13 @@ const Modal = () => {
   const closeModal = (e) => {
     const modal = document.querySelector('.modal-component');
     modal.classList.add('hidden');
-    setPopup(false);
+    setPopup(!isPopuped);
   };
 
   const openModal = (e) => {
     const modal = document.querySelector('.modal-component');
     modal.classList.remove('hidden');
-    setPopup(true);
+    setPopup(!isPopuped);
   };
 
   return (

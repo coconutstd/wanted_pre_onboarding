@@ -22,7 +22,7 @@ const Toggle = () => {
         <h3>Toggle</h3>
       </div>
       <div className="inner">
-        <label className="toggle-component" for="toggle">
+        <label className="toggle-component" htmlFor="toggle">
           <input
             onClick={onClick}
             id="toggle"
