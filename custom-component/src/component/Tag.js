@@ -19,6 +19,16 @@ const Tag = () => {
     }
   };
 
+  const onFocus = () => {
+    const tagComponent = document.querySelector('.tag-component');
+    tagComponent.style.border = '1.5px solid purple';
+  };
+
+  const onBlur = () => {
+    const tagComponent = document.querySelector('.tag-component');
+    tagComponent.style.border = '1px solid gray';
+  };
+
   const removeTag = (id) => {
     const nextTags = tags.filter((tag) => tag.id !== id);
     setTags(nextTags);
@@ -26,7 +36,7 @@ const Tag = () => {
 
   const tagList = tags.map((tag) => (
     <div key={tag.id} className="tag">
-      <p>{tag.text}</p>
+      {tag.text}
       <button className="delete-tag" onClick={() => removeTag(tag.id)}></button>
     </div>
   ));
@@ -40,8 +50,10 @@ const Tag = () => {
         <div className="tag-component">
           {tagList}
           <input
-            placeholder="Pleace Enter Tag..."
+            placeholder="Pleace Enter to add tags"
             value={tag}
+            onFocus={onFocus}
+            onBlur={onBlur}
             onKeyPress={addTag}
             onChange={onChange}
           ></input>
