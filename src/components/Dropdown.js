@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faCaretDown,
+  faCaretUp,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons"
 
@@ -68,7 +69,9 @@ const Dropdown = () => {
           </span>
         </div>
         <span className="w-full h-full text-right text-slate-400 absolute right-2 top-0">
-          <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+          <FontAwesomeIcon
+            icon={isDropDownOpen ? faCaretUp : faCaretDown}
+          ></FontAwesomeIcon>
         </span>
       </button>
       <div

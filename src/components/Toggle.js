@@ -12,7 +12,7 @@ const Toggle = () => {
   }
 
   return (
-    <div className="toggle box-border border-2 border-black relative overflow-hidden rounded-lg w-1/2 h-16 bg-white-400 flex">
+    <div className="toggle min-w-[350px] max-w-[500px] box-border border-2 border-black relative overflow-hidden rounded-lg w-1/2 h-16 bg-white-400 flex">
       <button
         onClick={onClickDefault}
         className={`default-tab relative z-20 w-1/2 text-center font-bold ${
