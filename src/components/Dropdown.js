@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faCaretDown,
@@ -11,35 +11,37 @@ const data = [
   { id: 2, text: "ETHUSD.PERP" },
   { id: 3, text: "BCHUSD.PERP" },
   { id: 4, text: "LTCUSD.PERP" },
+  { id: 5, text: "XRPUSD.PERP" },
+  { id: 6, text: "10000SHIBUPD.PERP" },
 ]
 
 const Dropdown = () => {
   const [currentKeyword, setCurrentKeyword] = useState("All Symbols")
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [searchWord, setSearchWord] = useState("")
   const [filteredList, setFilteredList] = useState([...data])
 
-  const dropDownList = React.createRef()
+  const dropDownList = useRef(null)
 
   const toggleDropdown = () => {
-    isDropDownOpen ? closeDropDown() : openDropDown()
+    isDropdownOpen ? closeDropdown() : openDropdown()
   }
 
-  const openDropDown = () => {
-    setIsDropDownOpen(true)
+  const openDropdown = () => {
+    setIsDropdownOpen(true)
     dropDownList.current.classList.remove("hidden")
     dropDownList.current.classList.add("flex")
   }
 
-  const closeDropDown = () => {
-    setIsDropDownOpen(false)
+  const closeDropdown = () => {
+    setIsDropdownOpen(false)
     dropDownList.current.classList.remove("flex")
     dropDownList.current.classList.add("hidden")
   }
 
   const selectKeyword = (keyword) => {
     setCurrentKeyword(keyword)
-    closeDropDown()
+    closeDropdown()
   }
 
   const keywordFilter = (e) => {
@@ -70,7 +72,7 @@ const Dropdown = () => {
         </div>
         <span className="w-full h-full text-right text-slate-400 absolute right-2 top-0">
           <FontAwesomeIcon
-            icon={isDropDownOpen ? faCaretUp : faCaretDown}
+            icon={isDropdownOpen ? faCaretUp : faCaretDown}
           ></FontAwesomeIcon>
         </span>
       </button>
